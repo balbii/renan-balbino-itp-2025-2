@@ -3,8 +3,8 @@
 #include <time.h>
 #include <ctype.h> // para toupper
 
-#define TAM 5
-#define BOMBAS 5
+#define TAM 4
+#define BOMBAS 4
 
 int tabuleiro[TAM][TAM];    // 0 = vazio, -1 = bomba
 int visivel[TAM][TAM];      // 0 = oculto, 1 = revelado
@@ -38,7 +38,7 @@ void imprimir() {
     printf("\n");
 
     for (int i = 0; i < TAM; i++) {
-        printf("%d  ", i);
+        printf("%d  ", i+1);
         for (int j = 0; j < TAM; j++) {
             if (visivel[i][j] == 0) {
                 printf(". ");
@@ -51,6 +51,33 @@ void imprimir() {
         printf("\n");
     }
 }
+
+void calcular_perigo() {
+    for (int i = 0; i < TAM; i++) {
+        for (int j = 0; j < TAM; j++) {
+            if (tabuleiro[i][j] == -1) continue; // pula bombas
+
+            int cont = 0;
+
+            // verifica as 8 casas vizinhas
+            for (int dx = -1; dx <= 1; dx++) {
+                for (int dy = -1; dy <= 1; dy++) {
+                    if (dx == 0 && dy == 0) continue; // não conta a própria casa
+                    int nx = i + dx;
+                    int ny = j + dy;
+
+                    // verifica se está dentro do tabuleiro
+                    if (nx >= 0 && nx < TAM && ny >= 0 && ny < TAM) {
+                        if (tabuleiro[nx][ny] == -1) cont++;
+                    }
+                }
+            }
+
+            tabuleiro[i][j] = cont; // guarda o número de bombas vizinhas
+        }
+    }
+}
+
 
 // Verifica se todas as casas seguras foram abertas
 int venceu() {
@@ -67,6 +94,7 @@ int venceu() {
 int main() {
     srand(time(NULL));
     inicializar();
+    calcular_perigo();
 
     int linha;
     char coluna;
@@ -77,6 +105,7 @@ int main() {
 
         printf("\nDigite linha e coluna (ex: 2 B) ou -1 para sair: ");
         scanf("%d", &linha);
+        linha--;  // ajusta para índice
 
         if (linha == -1) {
             printf("\n👋 Você saiu do jogo.\n");
@@ -106,6 +135,18 @@ int main() {
             } else {
                 printf("\n✅ Posição segura!\n");
             }
+
+
+
+            for (int i = 0; i < TAM; i++) {
+                for (int j = 0; j < TAM; j++) {
+                    // Operações sobre o tabuleiro
+                }
+            }
+
+
+
+
         }
     }
 
