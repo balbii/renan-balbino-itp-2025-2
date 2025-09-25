@@ -3,8 +3,8 @@
 #include <time.h>
 #include <ctype.h> // para toupper
 
-#define TAM 4
-#define BOMBAS 4
+#define TAM 3
+#define BOMBAS 1
 
 int tabuleiro[TAM][TAM];    // 0 = vazio, -1 = bomba
 int visivel[TAM][TAM];      // 0 = oculto, 1 = revelado
@@ -26,29 +26,6 @@ void inicializar() {
             tabuleiro[x][y] = -1;
             bombas_colocadas++;
         }
-    }
-}
-
-// Mostra o tabuleiro na tela
-void imprimir() {
-    printf("\n   ");
-    for (int j = 0; j < TAM; j++) {
-        printf("%c ", 'A' + j);  // colunas em letras
-    }
-    printf("\n");
-
-    for (int i = 0; i < TAM; i++) {
-        printf("%d  ", i+1);
-        for (int j = 0; j < TAM; j++) {
-            if (visivel[i][j] == 0) {
-                printf(". ");
-            } else if (tabuleiro[i][j] == -1) {
-                printf("* ");  // bomba
-            } else {
-                printf("%d ", tabuleiro[i][j]);  // número (por enquanto só 0)
-            }
-        }
-        printf("\n");
     }
 }
 
@@ -79,6 +56,30 @@ void calcular_perigo() {
 }
 
 
+// Mostra o tabuleiro na tela
+void imprimir() {
+    printf("\n   ");
+    for (int j = 0; j < TAM; j++) {
+        printf("%c ", 'A' + j);  // colunas em letras
+    }
+    printf("\n");
+
+    for (int i = 0; i < TAM; i++) {
+        printf("%d  ", i+1);
+        for (int j = 0; j < TAM; j++) {
+            if (visivel[i][j] == 0) {
+                printf(". ");
+            } else if (tabuleiro[i][j] == -1) {
+                printf("* ");  // bomba
+            } else {
+                printf("%d ", tabuleiro[i][j]);  // número (por enquanto só 0)
+            }
+        }
+        printf("\n");
+    }
+}
+
+
 // Verifica se todas as casas seguras foram abertas
 int venceu() {
     for (int i = 0; i < TAM; i++) {
@@ -104,13 +105,15 @@ int main() {
         imprimir();
 
         printf("\nDigite linha e coluna (ex: 2 B) ou -1 para sair: ");
-        scanf("%d", &linha);
-        linha--;  // ajusta para índice
-
-        if (linha == -1) {
+        int entrada_linha;
+        scanf("%d", &entrada_linha);
+        
+        if (entrada_linha == -1) {
             printf("\n👋 Você saiu do jogo.\n");
             break;
         }
+
+        linha = entrada_linha -1;  // ajusta para índice
 
         scanf(" %c", &coluna);  // lê a letra da coluna
         coluna = toupper(coluna);     // converte para maiúscula
