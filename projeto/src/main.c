@@ -3,8 +3,8 @@
 #include <time.h>
 #include <ctype.h> // para toupper
 
-#define TAM 3
-#define BOMBAS 1
+#define TAM 4
+#define BOMBAS 4
 
 int tabuleiro[TAM][TAM];    // 0 = vazio, -1 = bomba
 int visivel[TAM][TAM];      // 0 = oculto, 1 = revelado

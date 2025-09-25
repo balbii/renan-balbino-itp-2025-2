@@ -1,5 +1,8 @@
 # Ignora tudo dentro de listas/*
 listas/*/*
 
+
 # Permite apenas arquivos .c dentro de listas/*
 !listas/*/*.c
+!listas/*/*.txt
+!listas/*/*.md
