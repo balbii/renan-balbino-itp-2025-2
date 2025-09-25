@@ -20,3 +20,20 @@
 - ✅ Problema 2: Conversão de temperatura
 - ✅ Problema 3: Cálculo de juros compostos
 - ✅ Problema 4: Operações aritméticas básicas
+### Semana 3 - Condicionais:
+- ✅ Problema 1: Classificação de IMC
+- ✅ Problema 2: Calculadora de energia elétrica
+- ✅ Problema 3: Sistema de notas
+- ✅ Problema 4: Pedra, papel, tesoura
+- ✅ Problema 5: Calculadora de desconto progressivo
+- ✅ Problema 6: Diagnóstico médico simples
+- ✅ Problema 7: Sistema de equações do 2º grau
+- ✅ Problema 8: Validador de triângulos
+### Semana 4A - Repetições:
+- ✅ Problema 1: Dobrar folha
+- ✅ Problema 2: Homem Aranha
+- ✅ Problema 3: Números colegas
+- ✅ Problema 4: Jogo de dardos
+### Semana 4B - Análise e Padrões:
+- ✅ Questões 1-4: Análise de código
+- ✅ Questões 5-11: Implementações
