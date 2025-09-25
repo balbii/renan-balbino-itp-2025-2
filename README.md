@@ -12,7 +12,7 @@
 - **Vídeo de Demonstração**: [Link para o vídeo]
 
 ### Relatório técnico:
-- `projeto/docs/`: Informações específicas sobre funcionalidades implementadas e conceitos da U1 aplicados.
+- `projeto/docs/relatorio-u1.pdf`: Informações específicas sobre funcionalidades implementadas e conceitos da U1 aplicados.
 
 ## 📚 Listas de Exercícios
 ### Semana 2 - Variáveis, Tipos e Operadores:
