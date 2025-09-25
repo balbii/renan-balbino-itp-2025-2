@@ -135,18 +135,6 @@ int main() {
             } else {
                 printf("\n✅ Posição segura!\n");
             }
-
-
-
-            for (int i = 0; i < TAM; i++) {
-                for (int j = 0; j < TAM; j++) {
-                    // Operações sobre o tabuleiro
-                }
-            }
-
-
-
-
         }
     }
 
