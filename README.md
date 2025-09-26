@@ -37,3 +37,8 @@
 ### Semana 4B - Análise e Padrões:
 - ✅ Questões 1-4: Análise de código
 - ✅ Questões 5-11: Implementações
+
+## 🔧 Ambiente de Desenvolvimento
+- **SO**: Linux
+- **Compilador**: GCC versão 13.3.0
+- **Editor**: VS Code
