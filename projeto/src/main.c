@@ -4,8 +4,6 @@
 #include <ctype.h>
 #include <string.h>
 
-#define MAX_NOME 50
-
 int **tabuleiro;    // 0 = vazio, -1 = bomba
 int **visivel;      // 0 = oculto, 1 = revelado
 int TAM = 4;        // padrão
@@ -118,6 +116,25 @@ void configurar_tabuleiro() {
     printf("Configuração atual: Tabuleiro %dx%d, Bombas: %d\n", TAM, TAM, BOMBAS);
 }
 
+// FloodFill: revela blocos conectados de zeros
+void floodFill(int **visivel, int **vizinhos, int l, int c, int linhas, int colunas) {
+    // Fora dos limites
+    if (l < 0 || l >= linhas || c < 0 || c >= colunas) return;
+    // Já revelada
+    if (visivel[l][c] == 1) return;
+    // Revela a casa
+    visivel[l][c] = 1;
+    // Se tem bombas ao redor, não expande
+    if (vizinhos[l][c] > 0) return;
+    // Se é zero, expande para os 8 vizinhos
+    for (int dx = -1; dx <= 1; dx++) {
+        for (int dy = -1; dy <= 1; dy++) {
+            if (dx == 0 && dy == 0) continue;
+            floodFill(visivel, vizinhos, l + dx, c + dy, linhas, colunas);
+        }
+    }
+}
+
 void jogar(const char* nome) {
     inicializar();
     calcular_perigo();
@@ -153,7 +170,12 @@ void jogar(const char* nome) {
             printf("\n💥 Você encontrou uma bomba! Fim de jogo.\n");
             ativo = 0;
         } else {
-            visivel[linha][col] = 1;
+            // Se é zero, revela bloco de zeros
+            if (tabuleiro[linha][col] == 0) {
+                floodFill(visivel, tabuleiro, linha, col, TAM, TAM);
+            } else {
+                visivel[linha][col] = 1;
+            }
             if (venceu()) {
                 imprimir();
                 printf("\n🎉 Parabéns, %s! Você venceu o jogo!\n", nome);
@@ -168,10 +190,10 @@ void jogar(const char* nome) {
 
 int main() {
     srand(time(NULL));
-    char nome[MAX_NOME];
+    char nome[20];
 
     printf("Digite seu nome: ");
-    fgets(nome, MAX_NOME, stdin);
+    fgets(nome, 20, stdin);
     nome[strcspn(nome, "\n")] = 0;
 
     int opcao = 0;
