@@ -8,8 +8,8 @@
 
 int **tabuleiro;    // 0 = vazio, -1 = bomba
 int **visivel;      // 0 = oculto, 1 = revelado
-int TAM;            // tamanho do tabuleiro (definido pelo usuário)
-int BOMBAS;         // número de bombas (definido como TAM)
+int TAM = 4;        // padrão
+int BOMBAS = 4;     // padrão
 
 void inicializar() {
     // Aloca dinamicamente tabuleiro e visivel
@@ -96,22 +96,29 @@ void liberar_memoria() {
     free(visivel);
 }
 
-int main() {
-    srand(time(NULL));
+void creditos() {
+    printf("\n=== CRÉDITOS ===\n");
+    printf("Projeto desenvolvido por Renan Balbino.\n");
+    printf("ITP - 2025\n");
+}
 
-    char nome[MAX_NOME];
-    printf("Digite seu nome: ");
-    fgets(nome, MAX_NOME, stdin);
-    nome[strcspn(nome, "\n")] = 0; // remove o \n
+void configurar_tabuleiro() {
+    int novo_tam, novas_bombas;
+    printf("\n=== CONFIGURAR TABULEIRO ===\n");
+    printf("Digite o tamanho do tabuleiro (mínimo 3, máximo 7): ");
+    scanf("%d", &novo_tam);
+    if (novo_tam < 3) novo_tam = 3;
+    if (novo_tam > 7) novo_tam = 7;
+    printf("Digite o número de bombas (mínimo 1, máximo %d): ", novo_tam * 2);
+    scanf("%d", &novas_bombas);
+    if (novas_bombas < 1) novas_bombas = 1;
+    if (novas_bombas > novo_tam * 2) novas_bombas = novo_tam * 2;
+    TAM = novo_tam;
+    BOMBAS = novas_bombas;
+    printf("Configuração atual: Tabuleiro %dx%d, Bombas: %d\n", TAM, TAM, BOMBAS);
+}
 
-    printf("Olá, %s!\n", nome);
-
-    printf("Escolha o tamanho do tabuleiro (mínimo 3, máximo 7): ");
-    scanf("%d", &TAM);
-    if (TAM < 3) TAM = 3;
-    if (TAM > 7) TAM = 7;
-    BOMBAS = TAM; // define bombas igual ao tamanho
-
+void jogar(const char* nome) {
     inicializar();
     calcular_perigo();
 
@@ -156,7 +163,39 @@ int main() {
             }
         }
     }
-
     liberar_memoria();
+}
+
+int main() {
+    srand(time(NULL));
+    char nome[MAX_NOME];
+
+    printf("Digite seu nome: ");
+    fgets(nome, MAX_NOME, stdin);
+    nome[strcspn(nome, "\n")] = 0;
+
+    int opcao = 0;
+    while (1) {
+        printf("\n=== CAMPO MINADO ===\n");
+        printf("1. Jogar\n");
+        printf("2. Configurar o tabuleiro\n");
+        printf("3. Créditos\n");
+        printf("4. Sair\n");
+        printf("Escolha uma opção: ");
+        scanf("%d", &opcao);
+
+        if (opcao == 1) {
+            jogar(nome);
+        } else if (opcao == 2) {
+            configurar_tabuleiro();
+        } else if (opcao == 3) {
+            creditos();
+        } else if (opcao == 4) {
+            printf("\nSaindo...\n");
+            break;
+        } else {
+            printf("\nOpção inválida!\n");
+        }
+    }
     return 0;
 }
