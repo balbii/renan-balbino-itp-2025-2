@@ -143,6 +143,9 @@ void jogar(const char* nome) {
     char coluna;
     int ativo = 1;
 
+    // Início do tempo
+    time_t inicio = time(NULL);
+
     while (ativo) {
         imprimir();
         printf("\nDigite linha e coluna (ex: 2 B) ou -1 para sair: ");
@@ -185,6 +188,12 @@ void jogar(const char* nome) {
             }
         }
     }
+
+    // Fim do tempo
+    time_t fim = time(NULL);
+    double tempo = difftime(fim, inicio);
+    printf("\n⏱️ Tempo de jogo: %.0f segundos\n", tempo);
+
     liberar_memoria();
 }
 
