@@ -17,6 +17,9 @@
 - `projeto/docs/relatorio-u1.pdf`: Informações específicas sobre funcionalidades implementadas e conceitos da U1 aplicados.
 - `projeto/docs/relatorio-u2.pdf` com detalhes das funcionalidades, estrutura de dados e conceitos aplicados na U2.
 
+### Observação:
+- `projeto/docs/evidencias-u2.png`: No vídeo da U2, acabei esquecendo de mostrar que o código está compilando sem erros e não tem memory leaks, portanto, segue evidência.
+
 ## 📚 Listas de Exercícios
 ### Semana 2 - Variáveis, Tipos e Operadores:
 - ✅ Problema 1: Calculadora de IMC
