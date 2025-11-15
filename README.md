@@ -5,14 +5,17 @@
 ## 📁 Estrutura do Projeto
 - `projeto/`: Projeto principal da unidade
 - `listas/`: Soluções das listas de exercícios
+- `videos/`: Demonstrações das entregas
 - `README.md`: Este arquivo
 ## 🚀 Projeto: Campo Minado
 - **Descrição**: Este projeto é uma implementação simples do jogo Campo Minado em linguagem C, jogável via terminal.
 - **Repositório**: [public repo](https://github.com/balbii/renan-balbino-itp-2025-2/)
-- **Vídeo de Demonstração**: [video demons](https://youtu.be/GrfUGT7qIuA)
+- **Vídeo de Demonstração U1**: [video demons](https://youtu.be/GrfUGT7qIuA)
+- **Vídeo de Demonstração U2**: [video demons](https://youtu.be/jEI_-GWycd8)
 
 ### Relatório técnico:
 - `projeto/docs/relatorio-u1.pdf`: Informações específicas sobre funcionalidades implementadas e conceitos da U1 aplicados.
+- `projeto/docs/relatorio-u2.pdf` com detalhes das funcionalidades, estrutura de dados e conceitos aplicados na U2.
 
 ## 📚 Listas de Exercícios
 ### Semana 2 - Variáveis, Tipos e Operadores:
@@ -37,6 +40,24 @@
 ### Semana 4B - Análise e Padrões:
 - ✅ Questões 1-4: Análise de código
 - ✅ Questões 5-11: Implementações
+
+### Semana 7 - Vetores e Matrizes:
+- ✅ Problema 1: Manipulação de vetores
+- ✅ Problema 2: Operações com matrizes
+- ✅ Problema 3: Busca e ordenação
+- ✅ Problema 4: Soma de elementos
+
+### Semana 8 - Funções:
+- ✅ Problema 1: Função de cálculo de média
+- ✅ Problema 2: Função de verificação de primos
+- ✅ Problema 3: Função de conversão de unidades
+- ✅ Problema 4: Função recursiva para fatorial
+
+### Semana 9 - Manipulação de Strings:
+- ✅ Problema 1: Contagem de caracteres
+- ✅ Problema 2: Verificação de palíndromos
+- ✅ Problema 3: Substituição de palavras
+- ✅ Problema 4: Formatação de texto
 
 ## 🔧 Ambiente de Desenvolvimento
 - **SO**: Linux
